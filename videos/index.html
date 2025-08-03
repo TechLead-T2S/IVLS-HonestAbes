@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF‑8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Illinois Valley Landscape Supply</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/topbar-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/abesStyles.css">
+</head>
+
+<body>
+
+    <nav class="top-bar">
+        <div class="nav-left">
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                    <i class="fa-solid fa-toolbox icon-outline"></i>
+                    Services
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#gardening">Gardening</a>
+                    <a href="#elevation">Garden Brick Elevation</a>
+                    <a href="#firewood">Fire Wood Supply</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                    <i class="fa-solid fa-boxes-stacked icon-outline"></i>
+                    Products
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#brick-wall">Brick-Wall</a>
+                    <a href="#gardening">Gardening</a>
+                    <a href="#pathways">Pathways</a>
+                </div>
+            </div>
+
+
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                    <i class="fa-solid fa-screwdriver-wrench icon-outline"></i>
+                    DIY
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#brick-wall">Brick-Wall</a>
+                    <a href="#gardening">Gardening</a>
+                    <a href="#pathways">Pathways</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                    <i class="fa-solid fa-cart-shopping icon-outline"></i>
+                    Shop
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#gardening-supply">Gardening Supply</a>
+                    <a href="#bricks">Garden Bricks</a>
+                    <a href="#firewood">Fire Wood</a>
+                </div>
+            </div>
+
+            <div class="login-hover">
+                <button class="dropdown-toggle">
+                    <i class="fa-solid fa-right-to-bracket icon-outline"></i>
+                    Login
+                </button>
+                <div class="login-box">
+                    <form action="/login" method="POST">
+                        <label for="username">User ID</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+
+                        <button type="submit" class="login-btn">Let's Go!</button>
+
+                        <a href="#gardening-supply">Not a Member?</a>
+                        <button type="Enroll" class="login-btn">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="scroll-nav-right">
+            <p>☏(815)200‑4928</p>
+            <form class="search-form" action="#" method="get">
+                <input type="text" name="q" placeholder="Search...">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+    </nav>
+
+    <header>
+        <img src="images/logo.png" alt="Illinois Valley Landscape Supply" class="logo" onerror="this.style.display='none'; console.log('Logo failed to load');">
+
+        <h1>
+            <span class="red-star">✶</span>
+            Transform Your Landscape, Transform your America
+            <span class="red-star">✶</span>
+        </h1>
+        <p>Your trusted supplier for all Planning, Landscape & Lumber</p>
+        <a href="#book" class="cta">Get Started</a>
+    </header>
+
+    <main>
+        <section class="features">
+            <div class="feature">
+                <h3>Design Services</h3>
+                <p>Remote or in-person planning with experienced landscape designers.</p>
+            </div>
+            <div class="feature">
+                <h3>Stone & Mulch Delivery</h3>
+                <p>Wide range of natural stone, mulch, gravel, and soil products delivered to your home or site.</p>
+            </div>
+            <div class="feature">
+                <h3>DIY Support</h3>
+                <p>Installation tips, layout guidance, and friendly expert help at every step.</p>
+            </div>
+        </section>
+
+        <!--
+        <section class="proof">
+            <h3>Americas Top Rated by Business Partners & Homeowners</h3>
+            <p>Customers Satisfaction is our Priority!</p>
+        </section>  -->
+
+        <section class="bottom-duo-section">
+            <!-- Left Block -->
+            <div class="bottom-left">
+                <h2 id="book">Schedule Your Consultation</h2>
+                <p>
+                    Whether you're starting fresh or refreshing your yard, we’ll help plan the perfect solution tailored
+                    to your space.
+                </p>
+                <a href="schedule.html" class="cta">Book Now</a>
+            </div>
+
+            <!-- Right Block -->
+            <div class="bottom-right">
+                <img src="images/HonestAbeslogo.png" alt="Honest Abe's Logo" class="abes-logo" />
+                <h3>Need Some Firewood??</h3>
+                <a href="abes.html" class="learn-more-btn">Let's Get Some!</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://www.google.com/maps?q=2580+E+Route+6,+Marseilles,+IL+61341" target="_blank"
+                rel="noopener noreferrer" style="color: white; text-decoration: underline;">
+                📍 2580 E. Route 6, (corner of Route 6 & Milton Rd), Marseilles, IL 61341
+            </a>
+        </p>
+        <p>
+            Contact us at
+            <a href="mailto:info@illinoisvalleylandscape.com">
+                ✉ info@illinoisvalleylandscape.com
+            </a>
+        </p>
+        <p>© 2025 Illinois Valley Landscape Supply</p>
+    </footer>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/dropdown.js"></script>
+</body>
+
+</html>
