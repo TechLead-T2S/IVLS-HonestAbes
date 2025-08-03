@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firewood Shop</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/abesStyles.css" />
+
+  <!-- jsPDF CDN for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Main JS with defer to run after HTML loads -->
+  <script src="js/abesmain.js" defer></script>
+</head>
+<body>
+
+  <!-- Top bar with centered logo -->
+  <header>
+    <img src="images/HonestAbeslogo.png" alt="Firewood Shop Logo" class="logo" />
+  </header>
+
+  <main>
+    <button class="buy-now-btn" onclick="buyNow()">Buy Now</button>
+
+    <!-- Container for firewood product tiles -->
+    <section id="shop" class="shop-container"></section>
+
+    <!-- Floating cart summary -->
+    <div id="cartSummary" class="cart-summary" onclick="toggleCartModal()">
+      🛒 <span id="itemCount">0</span> items - $<span id="cartTotal">0.00</span>
+    </div>
+
+    <!-- Cart modal -->
+    <div id="cartModal" class="cart-modal">
+      <div class="cart-modal-content">
+        <h2>Your Cart</h2>
+        <div id="cartItems">No items yet.</div>
+
+        <div class="promo-section">
+          <input id="promoCode" type="text" placeholder="Enter promo code" />
+          <button onclick="applyPromo()">Apply Promo</button>
+        </div>
+
+        <div class="total-amount">
+          Total: $<span id="cartModalTotal">0.00</span>
+        </div>
+
+        <!-- Delivery address input -->
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" placeholder="Enter your delivery address here"></textarea>
+
+        <button id="placeOrderBtn" onclick="placeOrder()">Place Order</button>
+        <button onclick="toggleCartModal()">Close</button>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

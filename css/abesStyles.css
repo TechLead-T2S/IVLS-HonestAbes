@@ -1,0 +1,452 @@
+/* Root color variables for easy theme customization */
+:root {
+  --primary: #4a3f35;      /* Dark brown for header */
+  --accent: #f4d9ae;       /* Light beige accent */
+  --light: #fefbf5;        /* Off-white background */
+  --highlight: #d98b5f;    /* Orange highlight */
+  --text: #2b2b2b;         /* Dark gray text */
+}
+
+/* Basic body styling */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--light);
+  color: var(--text);
+}
+
+/* Header styling */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+/* Container for logo image to center it and space below */
+.logo-container {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Logo image size and fit */
+.logo-container img {
+  height: 60px; /* Reduced logo height */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Grid layout for the firewood product tiles */
+.shop-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Quality section styling */
+.quality-section {
+  grid-column: 1 / -1;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  margin-bottom: 15px;
+}
+
+.quality-content h2 {
+  color: var(--primary);
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.quality-content > p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quality-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.feature {
+  text-align: center;
+  padding: 15px;
+  background: var(--light);
+  border-radius: 8px;
+  border-left: 4px solid var(--highlight);
+}
+
+.feature h3 {
+  color: var(--primary);
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  color: var(--text);
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+/* Individual product tile styling */
+.tile {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s ease;
+}
+
+/* Slight lift effect on hover for tiles */
+.tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Image styling inside tile */
+.tile img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Container inside tile for name, price, and controls */
+.tile-content {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Controls for quantity buttons and display */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Styling for plus and minus buttons */
+.quantity-controls button {
+  padding: 5px 12px;
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  background: var(--highlight);
+  color: white;
+  border-radius: 5px;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+/* Button hover effect */
+.quantity-controls button:hover {
+  background: #b36c40;
+}
+
+/* Floating cart summary button fixed at bottom-right */
+.cart-summary {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Modal background overlay */
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+/* Show modal by adding 'show' class */
+.cart-modal.show {
+  display: flex;
+}
+
+/* Modal content box */
+.cart-modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+/* Close button for modal */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: #999;
+  font-size: 22px;
+  font-weight: bold;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect on close button */
+.modal-close:hover {
+  color: var(--highlight);
+}
+
+/* Each item row inside the cart modal */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+}
+
+/* Inputs and textarea styling */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Buttons styling (promo apply and place order) */
+.promo button, .place-order {
+  margin-top: 10px;
+  background: var(--highlight);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+/* Hover effect on buttons */
+.promo button:hover, .place-order:hover {
+  background: #b36c40;
+}
+
+/* Labels styling */
+label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+}
+
+/* Total price styling */
+p.total {
+  text-align: right;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.cart-modal.show {
+  display: flex;
+}
+
+.cart-modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.cart-modal-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #d98b5f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+main h1 {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 2.5em;
+  color: #333;
+}
+
+/* Buy Now button styling (replaces the title) */
+.buy-now-btn {
+  display: block;
+  margin: 20px auto;
+  background: var(--highlight);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.buy-now-btn:hover {
+  background: #b36c40;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.buy-now-btn:active {
+  transform: translateY(0);
+}
+
+/* Hide cart summary on abes.html page */
+body .cart-summary {
+  display: none !important;
+}
+
+/* Form Modal Styling */
+.form-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1002;
+}
+
+.form-modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.form-modal-content h2 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--highlight);
+  box-shadow: 0 0 5px rgba(217, 139, 95, 0.3);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.submit-btn, .cancel-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn {
+  background: var(--highlight);
+  color: white;
+}
+
+.submit-btn:hover {
+  background: #b36c40;
+  transform: translateY(-1px);
+}
+
+.cancel-btn {
+  background: #6c757d;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}

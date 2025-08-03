@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Schedule Consultation - Illinois Valley Landscape Supply</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Fix the scrolling issue and background video */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--navy);
+    }
+
+    .video-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 1rem;
+      max-width: 300px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      margin-top: 3rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--green);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background-color: var(--red);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c10909;
+    }
+
+    .success-message,
+    .error-message {
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .success-message {
+      color: green;
+    }
+
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔹 Background video -->
+  <div class="video-wrapper">
+    <video autoplay muted loop playsinline>
+      <source src="videos/firevideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- 🔹 Page content -->
+  <div class="content-wrapper">
+    <h1>Schedule Your Consultation</h1>
+    <form id="booking-form" action="https://formspree.io/f/yourFormID" method="POST">
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address*</label>
+      <input type="email" id="email" name="_replyto" required />
+
+      <label for="phone">Phone Number*</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <!-- Drop Down Menu to select service -->
+      <label for="service">Type of Services</label>
+      <select id="service" name="service">
+        <option value="">-- Please choose an option --</option>
+        <option value="design">Landscape Design</option>
+        <option value="delivery">Stone & Mulch Delivery</option>
+        <option value="landscape consulting">Consulting</option>
+        <option value="installation">Installation Help</option>
+        <option value="other">Other</option>
+      </select>
+
+
+      <label for="message">Tell us about your project</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <button type="submit">Book Now</button>
+
+      <p class="success-message" style="display: none;">Thank you for booking! We will contact you soon.</p>
+      <p class="error-message" style="display: none;">Oops! Something went wrong. Please try again.</p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('booking-form');
+    const successMsg = form.querySelector('.success-message');
+    const errorMsg = form.querySelector('.error-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          errorMsg.style.display = 'none';
+          form.reset();
+        } else {
+          throw new Error('Form submission failed.');
+        }
+      } catch (error) {
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+
+</html>

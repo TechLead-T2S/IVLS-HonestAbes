@@ -1,0 +1,60 @@
+/* Login hover container */
+.login-hover {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hidden login box by default */
+.login-box {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  border: 1px solid var(--red);
+  border-radius: 6px;
+  padding: 1rem;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Show on hover */
+.login-hover:hover .login-box {
+  display: block;
+}
+
+/* Form styles */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box label {
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.login-box input {
+  padding: 0.5rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #f71e1e;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.login-btn {
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #f71e1e;
+}
