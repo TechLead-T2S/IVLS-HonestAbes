@@ -57,5 +57,24 @@
     </div>
   </main>
 
+  <!-- Success Modal -->
+  <div id="successModal" class="success-modal">
+    <div class="success-modal-content">
+      <div class="success-icon">✅</div>
+      <h2>Order Submitted Successfully!</h2>
+      <div class="order-number">
+        <strong>Order Number:</strong>
+        <span id="successOrderNumber">WEB_1234567</span>
+      </div>
+      <p class="confirmation-message">
+        We will contact you shortly to confirm your order.
+      </p>
+      <div class="modal-buttons">
+        <button class="download-pdf-btn" onclick="downloadOrderPDF()">Download Order PDF</button>
+        <button class="close-success-btn" onclick="closeSuccessModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
