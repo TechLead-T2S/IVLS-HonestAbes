@@ -12,10 +12,12 @@ if (logo) {
 }
 
 const images = [
-  "images/fire.jpg",
-  "images/plainlogs.jpg",
-  "images/greenlog.jpg",
-  "images/samplegreenbg.jpg"
+  "images/00Unilock slide.png",
+  "images/00rochester slide.jpg",
+  "images/00MSI slide.jpg",
+  "images/00lurveys slide.jpg",
+  "images/00Haquist slide.jpg",
+  "images/00belgard slide.jpg"
 ];
 
 let index = 0;

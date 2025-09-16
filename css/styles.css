@@ -18,7 +18,7 @@
 header {
   text-align: center;
   padding: 12rem 5rem 8rem 5rem;
-  background: url('../images/samplegreenbg.jpg') no-repeat center center;
+  background: url('../images/00Unilock slide.png') no-repeat center center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,7 +36,7 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
   z-index: 0;
 }
 
@@ -96,7 +96,7 @@ header p {
   font-size: 1.1rem;
   text-decoration: solid;
   border-radius: 0.5rem;
-} 
+}
 
 main {
   padding: 4rem 1rem;
@@ -329,34 +329,53 @@ select {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--white); /* white background */
-  color: var(--navy);             /* default text color */
+  background-color: var(--white);
+  color: var(--navy);
   min-width: 180px;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 0.5rem 0;
+  text-align: center;
 }
 
 .dropdown-menu a {
   display: block;
   padding: 0.5rem 1rem;
-  color: var(--navy);             /* navy text inside dropdown bar*/
+  color: var(--navy);
   text-decoration: none;
+  font-weight: 500;
 }
 
 .dropdown-menu a:hover {
-  background-color: var(--sky-blue); /* Optional highlight color on hover */
-  color: var(--navy);                /* Keeps text navy on hover */
+  background-color: var(--sky-blue);
+  color: var(--navy);
 }
 
-.dropdown.open .dropdown-menu {
-  display: block;
-}
+/* Removed click-based open class - pure hover only */
 
-/* Show dropdown menu on hover */
+/* Show dropdown menu ONLY on hover - no click functionality */
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+/* Hide dropdown when not hovering */
+.dropdown:not(:hover) .dropdown-menu {
+  display: none;
+}
+
+/* Launching Soon message styling */
+.launching-soon {
+  display: block;
+  background-color: var(--red);
+  color: var(--white);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /*bottom assurance block */
